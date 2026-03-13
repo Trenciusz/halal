@@ -12,7 +12,7 @@ body.dark-mode {
     --text-color: #f4f4f4;
     --primary-color: #339af0; 
     --link-color: #74c0fc;    
-    --card-bg: #1e1e1e;
+    --card-bg: #1e1e1f;
     --shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
@@ -259,3 +259,4 @@ button[type="submit"]:hover {
         padding: 3rem 5%;
     }
 }
+
