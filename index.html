@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólióm | Kása Gergely</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Kása Gergely Portfóliója</div>
+        <button class="hamburger" id="hamburger-btn">☰</button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#hero">Rólam</a></li>
+            <li><a href="#projects">Projektek</a></li>
+            <li><a href="#skills">Készségek</a></li>
+            <li><a href="#contact">Kapcsolat</a></li>
+            <li><button id="theme-toggle">🌙/☀️</button></li> 
+        </ul>
+    </nav>
+
+    <header id="hero" class="section">
+        <div class="hero-container">
+            <div class="profile-pic-container">
+                <img src="" alt="Placeholder" class="profile-pic">
+            </div>
+            <div class="hero-content">
+                <h1>Szia, Terciusz vagyok!</h1>
+                <p>Igazából nagyon nem szeretnék dolgozni szóval kérlek ezt engedjük el.</p>
+            </div>
+        </div>
+    </header>
+
+    <section id="projects" class="section">
+        <h2>Korábbi Munkáim</h2>
+        <div class="project-grid">
+            <div class="card">
+                <h3>Godot játék</h3>
+                <p>Kezdő szintű játék de teljesen AI nélküli.</p>
+                <a href="https://github.com/Trenciusz/marciegyfemboy" target="_blank">Github</a>
+            </div>
+            <div class="card">
+                <h3>Házi feladat</h3>
+                <p>Egy átlagos iskolai feladat programozásból.</p>
+                <a href="https://github.com/Trenciusz/oraijscucc" target="_blank">Github</a>
+            </div>
+            <div class="card">
+                <h3>Ez a weboldal</h3>
+                <p>Pontosan az, amit a cím elmond.</p>
+                <a href="#" target="_blank">Új lapon megnyitás</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <h2>Készségeim</h2>
+        <div class="skills-container" id="skills-container">
+            <div class="skill"><span>HTML5</span> <div class="progress-bar"><div class="progress" data-percent="90"></div></div></div>
+            <div class="skill"><span>CSS3 / Grid</span> <div class="progress-bar"><div class="progress" data-percent="80"></div></div></div>
+            <div class="skill"><span>JavaScript</span> <div class="progress-bar"><div class="progress" data-percent="60"></div></div></div>
+            <div class="skill"><span>C#</span> <div class="progress-bar"><div class="progress" data-percent="80"></div></div></div>
+            <div class="skill"><span>Python</span> <div class="progress-bar"><div class="progress" data-percent="80"></div></div></div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Lépjünk kapcsolatba!</h2>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Neved" required>
+            <input type="email" id="email" placeholder="E-mail címed" required>
+            <textarea id="message" rows="5" placeholder="Üzeneted..." required></textarea>
+            <button type="submit">Küldés</button>
+        </form>
+        <p id="form-feedback" class="hidden">Üzenet elküldve! Köszönöm a megkeresést.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Kása Gergely. Minden jog fenntartva.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

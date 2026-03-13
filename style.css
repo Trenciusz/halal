@@ -1,0 +1,270 @@
+/* --- CSS Változók --- */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --primary-color: #007BFF; /* Világos módban alap kék */
+    --link-color: #0056b3;    /* Világos módban sötétebb kék link */
+    --card-bg: #f9f9f9;
+    --shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* --- Dark Mode Változók --- */
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #f4f4f4;
+    --primary-color: #339af0; /* Élénkebb kék sötét módhoz */
+    --link-color: #74c0fc;    /* SOKKAL jobban látható kék linkek sötétben */
+    --card-bg: #1e1e1e;
+    --shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+/* --- Alapbeállítások --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.section {
+    padding: 5rem 10%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+h2 {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* --- Navigáció --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 10%;
+    background-color: var(--card-bg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-color); /* A menü linkek az alap szövegszínt követik */
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+/* --- Hero Szekció és Profilkép (Reszponzív Flex) --- */
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap; /* Mobilon egymás alá rakja */
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .hero-container {
+        text-align: left;
+    }
+}
+
+.profile-pic-container {
+    flex-shrink: 0;
+    position: relative;
+}
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Kör alak */
+    object-fit: cover; /* Ne torzuljon a kép */
+    border: 5px solid var(--card-bg);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+    background-color: #ccc; /* Helykitöltő szín, amíg nincs kép */
+}
+
+.profile-pic:hover {
+    transform: scale(1.05); /* Enyhe nagyítás hoverre */
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* --- Projektek (Grid) --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.card h3 { margin-bottom: 0.5rem; }
+.card p { margin-bottom: 1rem; font-size: 0.95rem; opacity: 0.8; }
+
+/* --- Készségek és Animáció --- */
+.skills-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.skill {
+    margin-bottom: 1.5rem;
+}
+
+.skill span {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 12px;
+}
+
+body.dark-mode .progress-bar {
+    background-color: #333;
+}
+
+.progress {
+    background-color: var(--primary-color);
+    height: 100%;
+    border-radius: 10px;
+    width: 0%; /* JS fogja megnövelni */
+    transition: width 1.5s cubic-bezier(0.1, 0.5, 0.2, 1); /* Sima, lassuló animáció */
+}
+
+/* --- Kapcsolat és Gombok --- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+input, textarea {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+body.dark-mode input, body.dark-mode textarea {
+    border-color: #444;
+}
+
+button[type="submit"], #theme-toggle {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#theme-toggle {
+    background: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+
+.hidden { display: none; }
+#form-feedback { text-align: center; color: #28a745; margin-top: 1rem; }
+
+/* --- Mobil Reszponzivitás --- */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--card-bg);
+        padding: 1rem 0;
+        box-shadow: var(--shadow);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .section {
+        padding: 3rem 5%;
+    }
+}
